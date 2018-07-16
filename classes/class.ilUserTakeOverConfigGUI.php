@@ -143,12 +143,13 @@ class ilUserTakeOverConfigGUI extends ilPluginConfigGUI {
 		$result = [];
 
 		foreach ($users as $user) {
-			$result[] = [
-				"id" => $user['usr_id'],
-				"text" => $user['firstname']." ".$user['lastname']." (".$user['login'].")"
-			];
+		    if( $user['login'] !== 'root' && $user['login'] !== 'admin'){
+                $result[] = [
+                    "id" => $user['usr_id'],
+                    "text" => $user['firstname']." ".$user['lastname']." (".$user['login'].")"
+                ];
+            }
 		}
-
 		echo json_encode($result);
 		exit;
 	}
