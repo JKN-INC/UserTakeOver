@@ -46,7 +46,7 @@ class ilUserTakeOverGeneralRepository implements IGeneralRepository
     {
         $query = new ilUserQuery();
         $query->setTextFilter($term);
-        $query->setActionFilter('active');
+        //$query->setActionFilter('active');
         $results = $query->query();
 
         $users = [];
